@@ -44,15 +44,7 @@ const Sidebar = ({ selected, setSelected }: Props) => {
         <UsersIcon selected={selected} />
         {open && "Users"}
       </div>
-      <div
-        onClick={() => setSelected(4)}
-        className={`flex gap-2 items-center mb-3 py-3 px-4 rounded-[8px] ${
-          selected == 4 && "bg-sidebar-white text-sidebar-green"
-        } cursor-pointer`}
-      >
-        <ReportsIcon selected={selected} />
-        {open && "Reports"}
-      </div>
+
       <div
         onClick={() => setSelected(3)}
         className={`flex gap-2 items-center mb-3 py-3 px-4 rounded-[8px] ${
@@ -61,6 +53,15 @@ const Sidebar = ({ selected, setSelected }: Props) => {
       >
         <AnalyticsIcon selected={selected} />
         {open && "Analytics"}
+      </div>
+      <div
+        onClick={() => setSelected(4)}
+        className={`flex gap-2 items-center mb-3 py-3 px-4 rounded-[8px] ${
+          selected == 4 && "bg-sidebar-white text-sidebar-green"
+        } cursor-pointer`}
+      >
+        <ReportsIcon selected={selected} />
+        {open && "Reports"}
       </div>
 
       <div

@@ -16,6 +16,10 @@ const config: Config = {
       colors: {
         "sidebar-green": "#0D8812",
         "sidebar-white": "#FFFFFF",
+        "button-success-bg": "#E1FFDC",
+        "button-success-text": "#5F8D4E",
+        "button-error-bg": "#FFE2E5",
+        "button-error-text": "#F64E60",
       },
     },
   },
