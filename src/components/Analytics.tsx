@@ -40,11 +40,11 @@ const dummyData = [
 const Analytics = () => {
   const [data, setData] = useState(dummyData);
   return (
-    <div className="flex gap-6 p-6 ">
+    <div className="grid max-[800px]:grid-cols-1  max-[1340px]:grid-cols-2 grid-cols-4 gap-6 p-6 ">
       {data.map((item, index) => (
         <div
           key={index}
-          className="w-1/4 p-4 relative bg-sidebar-white rounded-[14px]"
+          className="p-4 relative bg-sidebar-white rounded-[14px]"
         >
           <h2 className="mb-4">{item.label}</h2>
           <div className="font-semibold text-3xl mb-6">{item.count}</div>

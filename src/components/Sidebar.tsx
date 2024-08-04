@@ -6,13 +6,12 @@ import ReportsIcon from "@/svgs/sidebar/ReportsIcon";
 import UsersIcon from "@/svgs/sidebar/UsersIcon";
 import ZipzapAdminLogo from "@/svgs/sidebar/ZipzapAdminLogo";
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-type Props = {
-  selected: number;
-  setSelected: Function;
-};
-const Sidebar = ({ selected, setSelected }: Props) => {
+const Sidebar = () => {
   const [open, setOpen] = useState(true);
+  const router = useRouter();
+  const pathname = usePathname();
   return (
     <aside className="bg-sidebar-green text-sidebar-white p-4  flex flex-col ">
       <div
@@ -27,44 +26,56 @@ const Sidebar = ({ selected, setSelected }: Props) => {
         <MenuIcon open={open} setOpen={setOpen} />
       </div>
       <div
-        onClick={() => setSelected(1)}
+        onClick={() => {
+          router.push("/");
+        }}
         className={`flex gap-2 items-center mb-3 py-3 px-4 rounded-[8px] ${
-          selected == 1 && "bg-sidebar-white text-sidebar-green"
+          pathname == "/" && "bg-sidebar-white text-sidebar-green"
         } cursor-pointer`}
       >
-        <DashboardIcon selected={selected} />
+        <DashboardIcon selected={pathname == "/"} />
         {open && "Dashboard"}
       </div>
       <div
-        onClick={() => setSelected(2)}
+        onClick={() => {
+          router.push("/users");
+        }}
         className={`flex gap-2 items-center mb-3 py-3 px-4 rounded-[8px] ${
-          selected == 2 && "bg-sidebar-white text-sidebar-green"
+          pathname == "/users" && "bg-sidebar-white text-sidebar-green"
         } cursor-pointer`}
       >
-        <UsersIcon selected={selected} />
+        <UsersIcon selected={pathname == "/users"} />
         {open && "Users"}
       </div>
 
       <div
-        onClick={() => setSelected(3)}
+        onClick={() => {
+          router.push("/reports");
+        }}
         className={`flex gap-2 items-center mb-3 py-3 px-4 rounded-[8px] ${
-          selected == 3 && "bg-sidebar-white text-sidebar-green"
+          pathname == "/reports" && "bg-sidebar-white text-sidebar-green"
         } cursor-pointer`}
       >
-        <AnalyticsIcon selected={selected} />
-        {open && "Analytics"}
+        <ReportsIcon selected={pathname == "/reports"} />
+        {open && "Reports"}
       </div>
       <div
-        onClick={() => setSelected(4)}
+        onClick={() => {
+          router.push("/analytics");
+        }}
         className={`flex gap-2 items-center mb-3 py-3 px-4 rounded-[8px] ${
-          selected == 4 && "bg-sidebar-white text-sidebar-green"
+          // selected == 3 &&
+          pathname == "/analytics" && "bg-sidebar-white text-sidebar-green"
         } cursor-pointer`}
       >
-        <ReportsIcon selected={selected} />
-        {open && "Reports"}
+        <AnalyticsIcon selected={pathname == "/analytics"} />
+        {open && "Analytics"}
       </div>
 
       <div
+        onClick={() => {
+          router.push("/");
+        }}
         className={`flex items-center ${
           !open ? "justify-center" : "ms-4"
         } gap-6 mt-auto cursor-pointer`}
