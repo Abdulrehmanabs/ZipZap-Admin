@@ -9,7 +9,7 @@ const SignUpForm = () => {
       email,
       password,
     };
-    if (email && password.length > 4) {
+    if (email != "" && password.length > 4) {
       localStorage.setItem("user", JSON.stringify(user));
       window.location.reload();
     } else {
