@@ -12,7 +12,7 @@ const ReportsFilters = ({ filters, setFilters }: Props) => {
       {reportsFiltersValue.map((item) => (
         <div
           key={item}
-          className={` rounded-md px-4 py-2 cursor-pointer ${
+          className={` rounded-md px-4 py-2 cursor-pointer text-nowrap ${
             filters == item ? "bg-[#AEAEAE] text-sidebar-white" : "bg-[#DADADA]"
           }`}
           onClick={() => setFilters(item)}

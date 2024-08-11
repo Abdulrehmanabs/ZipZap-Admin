@@ -8,7 +8,7 @@ const UsersFilters = ({ usersFilters, setUsersFilters }: Props) => {
   const usersFiltersValue = [
     "All Users",
     "Job Seekers",
-    "Recuriters",
+    "Recruiters",
     "Blocked",
   ];
   return (
@@ -17,7 +17,7 @@ const UsersFilters = ({ usersFilters, setUsersFilters }: Props) => {
       {usersFiltersValue.map((filter) => (
         <div
           key={filter}
-          className={` rounded-md px-4 py-2 cursor-pointer ${
+          className={` rounded-md px-4 py-2 cursor-pointer text-nowrap ${
             usersFilters == filter
               ? "bg-[#AEAEAE] text-sidebar-white"
               : "bg-[#DADADA]"

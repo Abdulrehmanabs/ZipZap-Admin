@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Table from "./Table";
+import { usePathname } from "next/navigation";
 
 const dummyUsers = [
   {
@@ -87,14 +88,37 @@ const dummyUsers = [
 
 const headers = ["Name", "ID", "Email", "Type", "Status", "Action"];
 
-const Users = () => {
+const Users = ({ filter }: { filter: string }) => {
+  const pathname = usePathname();
   const [users, setUsers] = useState(dummyUsers);
   return (
     <div className="p-6">
-      <h2 className="font-semibold text-2xl">{"List of All Users"}</h2>
-      <div className="text-gray-500">40689 Total Users</div>
+      <h2 className="font-semibold text-2xl">
+        List of {filter ? filter : "..."}
+      </h2>
+      <div className="text-gray-500">
+        Total Users :{" "}
+        {
+          // pathname == "/" ? users.slice(0, 3).length :
+          users.filter((user) =>
+            filter == "Users" || filter == "All Users"
+              ? true
+              : filter == "Job Seekers"
+              ? user.type == "Job Seeker"
+              : filter == "Recruiters"
+              ? user.type == "Recruiter"
+              : filter == "Blocked"
+              ? user.status == "Blocked"
+              : null
+          ).length
+        }
+      </div>
       {/* table */}
-      <Table headers={headers} users={users} />
+      <Table
+        headers={headers}
+        users={pathname == "/" ? users.slice(0, 3) : users}
+        filter={filter}
+      />
     </div>
   );
 };

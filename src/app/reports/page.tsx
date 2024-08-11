@@ -6,10 +6,10 @@ import React, { useState } from "react";
 const Page = () => {
   const [filters, setFilters] = useState("All Reports");
   return (
-    <section>
+    <div className="w-full overflow-auto">
       <ReportsFilters filters={filters} setFilters={setFilters} />
-      <Reports />
-    </section>
+      <Reports filters={filters} />
+    </div>
   );
 };
 

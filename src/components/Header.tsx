@@ -21,7 +21,7 @@ const Header = () => {
         Admin
         <Image
           className="w-[46px] h-[46px] rounded-full"
-          src="/AdminAvator.jpg"
+          src={true ? "/AdminAvator.jpg" : "https://i.pravatar.cc/300"}
           alt="Next.js Logo"
           width={46}
           height={46}

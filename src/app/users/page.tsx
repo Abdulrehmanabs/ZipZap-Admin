@@ -6,12 +6,12 @@ import React, { useState } from "react";
 const Page = () => {
   const [usersFilters, setUsersFilters] = useState("All Users");
   return (
-    <div>
+    <div className="w-full overflow-auto">
       <UsersFilters
         setUsersFilters={setUsersFilters}
         usersFilters={usersFilters}
       />
-      <Users />
+      <Users filter={usersFilters} />
     </div>
   );
 };

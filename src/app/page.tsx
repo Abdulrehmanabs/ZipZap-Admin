@@ -8,9 +8,9 @@ export default function Home() {
     <div className="w-full overflow-auto">
       <Analytics />
 
-      <Users />
+      <Users filter={"All Users"} />
 
-      <Reports />
+      <Reports filters={"All Reports"} />
     </div>
   );
 }

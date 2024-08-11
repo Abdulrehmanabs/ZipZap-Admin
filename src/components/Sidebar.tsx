@@ -74,7 +74,8 @@ const Sidebar = () => {
 
       <div
         onClick={() => {
-          router.push("/");
+          localStorage.removeItem("user");
+          window.location.reload();
         }}
         className={`flex items-center ${
           !open ? "justify-center" : "ms-4"
